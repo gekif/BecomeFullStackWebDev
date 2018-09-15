@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'braintree' => [
+        'secret' => env('SECRET_KEY')
+    ]
+
 ];

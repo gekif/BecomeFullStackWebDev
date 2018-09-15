@@ -1,17 +1,22 @@
 <?php
 
-Route::get('/contact', function () {
-    echo "Hello from contact page";
+Route::prefix('admin')->group(function () {
+
+    Route::get('/', function () {
+        echo 'Admin Panel';
+    });
+
+    Route::get('/user', function () {
+        echo 'Admin User';
+    });
+
+    Route::get('/profile', function () {
+        echo 'Admin Profile';
+    });
+
+    Route::get('/settings', function () {
+        echo 'Admin Settings';
+    });
+
 });
 
-Route::get('/user/{id}', function ($id) {
-    echo "Hello from $id";
-});
-
-Route::get('/user/{id}/posts/{postId}', function ($id, $postId) {
-    echo "Hello from $id and your post is $postId";
-});
-
-Route::get('/user/{id?}', function ($id = null) {
-     echo "$id Without ID";
-});

@@ -6,23 +6,15 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+//    public function index()
+    public function index(Request $request)
     {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
+//        return "Home";
+//        return $_GET['name'];
+//        dd($request->all());
+//        dd($request->name);
+//        return $request->name;
+//        echo $request->pass . "<br>" . $request->email;
+        echo $request->get('name', 'Not Provided');
     }
 }

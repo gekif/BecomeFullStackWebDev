@@ -1,22 +1,9 @@
 <?php
 
-Route::prefix('admin')->group(function () {
+Route::get('/home/landingpage', function () {
+    echo "Home Page";
+})->name('home');
 
-    Route::get('/', function () {
-        echo 'Admin Panel';
-    });
-
-    Route::get('/user', function () {
-        echo 'Admin User';
-    });
-
-    Route::get('/profile', function () {
-        echo 'Admin Profile';
-    });
-
-    Route::get('/settings', function () {
-        echo 'Admin Settings';
-    });
-
+Route::get('/page', function () {
+    return redirect()->route('home');
 });
-

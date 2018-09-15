@@ -11,11 +11,8 @@ class App extends React.Component {
         this.stateHandler = this.stateHandler.bind(this);
     }
 
-    stateHandler() {
-        let item = 'The state';
-        let dataArray = this.state.data;
-        dataArray.push(item);
-        this.setState({data: dataArray});
+    stateHandler(e) {
+        this.setState({data: e.target.value})
     }
 
     render() {
@@ -23,6 +20,7 @@ class App extends React.Component {
             <div>
                 <div>{this.state.data}</div>
                 <button onClick={this.stateHandler}>Click Here To Update</button>
+                <input type="text" onChange={this.stateHandler} />
             </div>
         );
     }

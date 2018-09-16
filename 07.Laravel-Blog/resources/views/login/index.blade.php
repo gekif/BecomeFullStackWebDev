@@ -8,6 +8,12 @@
     <h3>Login</h3>
     <hr>
 
+    @if (session()->has('msg'))
+        <div class="alert alert-success">
+            {{ session()->get('msg') }}
+        </div>
+    @endif
+
     <div class="card">
         <div class="card-header">
             Login

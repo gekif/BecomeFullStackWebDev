@@ -20,5 +20,11 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+
+//        return redirect()->route('success');
+//        return redirect()->back();
+        return redirect()->back()->with('msg', 'Thanks for entering data');
+
+
     }
 }

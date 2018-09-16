@@ -6,61 +6,35 @@ use Illuminate\Http\Request;
 
 use App\Post;
 
+use Illuminate\Support\Facades\DB;
+
 class PostController extends Controller
 {
     public function index()
     {
-        $request = [
-            'title' => 'Learning Laravel',
-            'body' => 'This is nice'
-        ];
+        // Basic Query Builder
+//        $posts = DB::table('posts')->get();
 
-        // First Method Insert
-//        $post = Post::create($request);
+//        $posts = DB::table('posts')->first();
 
-//        dd($post);
+//        dd($posts);
 
+        // Query Builder Using Where
+//        $posts = DB::table('posts')->where('id', 4)->get();
+//        $posts = DB::table('posts')->where('id','<', 4)->get();
+//        $posts = DB::table('posts')->where('id','=', 4)->get();
+//        $posts = DB::table('posts')->where('id','>', 4)->get();
 
-        // Second Method Insert
-/*        $post = new Post;
+//        $posts = DB::table('posts')->where('status','=', 1)->get();
+//        $posts = DB::table('posts')->where('status', 1)->get();
+//        $posts = DB::table('posts')->where('status', true)->get();
 
-        $post->title = 'New Post Title';
-        $post->body = 'This is the body of the post';
+//        $posts = DB::table('posts')->orderBy('id', 'asc')->get();
+//        $posts = DB::table('posts')->orderBy('id', 'desc')->get();
+        $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
 
-        $post->save();*/
+        return view('posts.posts', compact('posts'));
 
-
-        // First Method Update
-/*        $post = Post::find(1);
-
-        $post->update([
-            'title' => 'Title Updated',
-            'body' => 'Body Updated'
-        ]);
-
-        $post->save();*/
-
-
-        // Second Method Update
-/*        $post = Post::where('id', 2)->update([
-            'title' => 'Updated 11',
-            'body' => 'Body updated 11'
-        ]);
-
-        dd($post);*/
-
-
-        // First Method Delete
-/*        $post = Post::where('id', 2)->delete();
-
-        dd($post);*/
-
-
-        // Second Method Delete
-        $post = Post::find(1);
-        $post->delete();
-
-        dd($post);
 
 
 

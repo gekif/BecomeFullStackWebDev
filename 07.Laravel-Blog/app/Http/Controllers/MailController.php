@@ -18,6 +18,9 @@ class MailController extends Controller
         // Validate
         $request->validate([
             'email' => 'required|email'
+//        ], [
+//            'email' => 'This is not right email',
+//            'email.required' => 'This is required'
         ]);
     }
 }

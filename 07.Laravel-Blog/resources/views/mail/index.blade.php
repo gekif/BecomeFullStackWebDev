@@ -9,5 +9,5 @@
 <form action="{{ route('mail.store') }}" method="post">
     @csrf
     <input type="text" name="email">
-    <input type="submit" value="submit">
+    <input type="submit" value="Submit">
 </form>

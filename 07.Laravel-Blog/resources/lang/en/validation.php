@@ -125,8 +125,10 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+//            'required' => 'This is required..',
+            'required' => 'This :attribute required..',
+            'email' => 'This is not right :attribute'
         ],
     ],
 

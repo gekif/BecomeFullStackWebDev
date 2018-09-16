@@ -21,9 +21,15 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-//        return redirect()->route('success');
-//        return redirect()->back();
-        return redirect()->back()->with('msg', 'Thanks for entering data');
+        return response()->json([
+            'post' => [
+                ['id' => 1, 'title' => 'Abc'],
+                ['id' => 2, 'title' => 'Xyz'],
+                ['id' => 3, 'title' => 'Abd'],
+                ['id' => 4, 'title' => 'Abe'],
+            ]
+
+    ]);
 
 
     }

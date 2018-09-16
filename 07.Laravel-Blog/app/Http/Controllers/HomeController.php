@@ -8,15 +8,16 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return '<form method="post">
-                    <input type="text" name="name" action="'.route('contact').'"><input type="submit">
-                </form>';
+//        $user = 'Fikar';
+        $data = [
+            'fikar',
+            'febrina',
+            'fina'
+        ];
+
+
+//        return view('home.index')->with('user', $user);
+        return view('home.index', compact('data'));
     }
 
-    public function store(Request $request)
-    {
-//        dd($request->all());
-//        dd($request->name);
-        return $request->name;
-    }
 }

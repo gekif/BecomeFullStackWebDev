@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Mail;
 
-use App\Mail\Welcome;
+use App\Mail\OrderShipped;
 
 class MailController extends Controller
 {
@@ -16,7 +16,7 @@ class MailController extends Controller
 
         $user = 'fikar@gmail.com';
 
-        Mail::to($user)->send(new Welcome);
+        Mail::to($user)->send(new OrderShipped);
     }
 
 }

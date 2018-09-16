@@ -4,23 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Mail;
+
+use App\Mail\Welcome;
+
 class MailController extends Controller
 {
     public function index()
     {
-        return view('mail.index');
+//        echo 'Welcome';
+
+        $user = 'fikar@gmail.com';
+
+        Mail::to($user)->send(new Welcome);
     }
 
-    public function store(Request $request)
-    {
-//        dd($request->all());
-
-        // Validate
-        $request->validate([
-            'email' => 'required|email'
-//        ], [
-//            'email' => 'This is not right email',
-//            'email.required' => 'This is required'
-        ]);
-    }
 }

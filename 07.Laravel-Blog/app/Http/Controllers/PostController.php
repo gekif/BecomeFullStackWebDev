@@ -10,20 +10,61 @@ class PostController extends Controller
 {
     public function index()
     {
-//        echo 'Hello World';
+        $request = [
+            'title' => 'Learning Laravel',
+            'body' => 'This is nice'
+        ];
 
-//        $posts = Post::all();
+        // First Method Insert
+//        $post = Post::create($request);
 
-//        $posts = Post::where('id', 1);
+//        dd($post);
 
-//        $posts = Post::where('id', 1)->first();
-//        $posts = Post::where('id', 1)->get();
 
-//        $posts = Post::take(2)->get();
-        $posts = Post::take(3)->get();
+        // Second Method Insert
+/*        $post = new Post;
 
-//        dd($posts);
+        $post->title = 'New Post Title';
+        $post->body = 'This is the body of the post';
 
-        return view('posts.posts', compact('posts'));
+        $post->save();*/
+
+
+        // First Method Update
+/*        $post = Post::find(1);
+
+        $post->update([
+            'title' => 'Title Updated',
+            'body' => 'Body Updated'
+        ]);
+
+        $post->save();*/
+
+
+        // Second Method Update
+/*        $post = Post::where('id', 2)->update([
+            'title' => 'Updated 11',
+            'body' => 'Body updated 11'
+        ]);
+
+        dd($post);*/
+
+
+        // First Method Delete
+/*        $post = Post::where('id', 2)->delete();
+
+        dd($post);*/
+
+
+        // Second Method Delete
+        $post = Post::find(1);
+        $post->delete();
+
+        dd($post);
+
+
+
+
+
     }
 }

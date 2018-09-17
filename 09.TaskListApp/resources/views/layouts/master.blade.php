@@ -6,14 +6,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Task List App</title>
+    <title>Task List Apps</title>
 
 </head>
 <body>
 
 <!-- As a heading -->
 <nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Navbar</span>
+    <span class="navbar-brand mb-0 h1 mx-auto">Aplikasi Daftar Tugas</span>
 </nav>
 
 <div class="container">

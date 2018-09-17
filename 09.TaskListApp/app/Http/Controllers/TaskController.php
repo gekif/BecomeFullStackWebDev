@@ -31,7 +31,7 @@ class TaskController extends Controller
             'title' => $request->title
         ]);
 
-        session()->flash('msg', 'Task has been created');
+        session()->flash('success', 'Task has been created');
 
         return redirect('/');
     }
@@ -42,7 +42,7 @@ class TaskController extends Controller
 //        dd($id);
         Task::destroy($id);
 
-        return redirect()->back()->with('msg', 'Tash has been deleted');
+        return redirect()->back()->with('delete', 'Task has been deleted');
     }
 
 

@@ -8,11 +8,13 @@ use App\Task;
 
 class TaskController extends Controller
 {
+
     public function index()
     {
         $tasks = Task::all()->sortByDesc('created_at');
         return view('tasks.index', compact('tasks'));
     }
+
 
     public function store(Request $request)
     {
@@ -33,4 +35,15 @@ class TaskController extends Controller
 
         return redirect('/');
     }
+
+
+    public function destroy($id)
+    {
+//        dd($id);
+        Task::destroy($id);
+
+        return redirect()->back()->with('msg', 'Tash has been deleted');
+    }
+
+
 }

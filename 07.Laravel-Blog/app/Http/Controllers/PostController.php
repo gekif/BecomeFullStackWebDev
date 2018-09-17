@@ -12,28 +12,40 @@ class PostController extends Controller
 {
     public function index()
     {
-        // Basic Query Builder
-//        $posts = DB::table('posts')->get();
+//        $data = ['Fikar', 'Febrina', 'Fiktor'];
 
-//        $posts = DB::table('posts')->first();
+/*        $data = [
+            'name' => 'Fikar',
+            'email' => 'fikar@gmail.com',
+        ];*/
 
-//        dd($posts);
+//        $collect = collect($data);
 
-        // Query Builder Using Where
-//        $posts = DB::table('posts')->where('id', 4)->get();
-//        $posts = DB::table('posts')->where('id','<', 4)->get();
-//        $posts = DB::table('posts')->where('id','=', 4)->get();
-//        $posts = DB::table('posts')->where('id','>', 4)->get();
+//        dd($collect);
 
-//        $posts = DB::table('posts')->where('status','=', 1)->get();
-//        $posts = DB::table('posts')->where('status', 1)->get();
-//        $posts = DB::table('posts')->where('status', true)->get();
+//        dd(get_class($collect));
 
-//        $posts = DB::table('posts')->orderBy('id', 'asc')->get();
-//        $posts = DB::table('posts')->orderBy('id', 'desc')->get();
+//        dd($collect->first());
+//        dd($collect->last());
+
+//        dd($collect[0]);
+//        dd($collect[1]);
+
+/*        foreach ($collect as $item) {
+            echo "$item ";
+        }*/
+
         $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
 
-        return view('posts.posts', compact('posts'));
+//        dd($posts);
+//        dd($posts->all());
+//        dd($posts->count());
+
+//        $posts->toArray();
+        $posts->toJson();
+        return $posts;
+
+//        return view('posts.posts', compact('posts'));
 
 
 

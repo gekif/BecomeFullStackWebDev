@@ -58,13 +58,18 @@
                     <table class="table table-bordered">
                         <tr>
                              <th>Task</th>
-                             <th>Action</th>
+                             <th style="width: 2em;">Action</th>
                         </tr>
 
-                        <tr>
-                            <th>Task</th>
-                            <th><button class="btn btn-danger btn-sm">Delete</button></th>
-                        </tr>
+                        @foreach($tasks as $task)
+
+                            <tr>
+                                <th>{{ $task->title }}</th>
+                                <th><button class="btn btn-danger btn-sm">Delete</button></th>
+                            </tr>
+
+                        @endforeach
+
                     </table>
                 </div>
             </div>

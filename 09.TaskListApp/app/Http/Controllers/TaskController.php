@@ -10,4 +10,14 @@ class TaskController extends Controller
     {
         return view('tasks.index');
     }
+
+    public function store(Request $request)
+    {
+//        dd($request->all());
+
+        // Validation
+        $request->validate([
+            'title' => 'required'
+        ]);
+    }
 }

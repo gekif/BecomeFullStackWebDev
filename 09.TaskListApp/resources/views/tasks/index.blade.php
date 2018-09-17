@@ -16,6 +16,10 @@
                 @endforeach
             @endif--}}
 
+            @if(session()->has('msg'))
+                <div class="alert alert-success">{{ session()->get('msg') }}</div>
+            @endif
+
             <div class="card">
                 <div class="card-header">
                     Add Task
@@ -26,7 +30,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="task">Task</label>
-                            <input type="text" name="task" id="task" placeholder="task" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
+                            <input type="text" name="title" id="title" placeholder="task" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
                             <div class="invalid-feedback">
                                 {{ $errors->has('title') ? $errors->first('title') : '' }}
                             </div>

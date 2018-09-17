@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Task;
+
 class TaskController extends Controller
 {
     public function index()
@@ -19,5 +21,15 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required'
         ]);
+
+//        dd($request->title);
+
+        Task::create([
+            'title' => $request->title
+        ]);
+
+        session()->flash('msg', 'Task has been created');
+
+        return redirect('/');
     }
 }

@@ -9,19 +9,20 @@
 
         <ul class="nav">
             <li>
-                <a href="">
+                <a href="/">
                     <i class="ti-panel"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="products/create">
                     <i class="ti-archive"></i>
                     <p>Tambah Produk</p>
                 </a>
             </li>
             <li>
-                <a href="">
+                {{--<a href="{{ url('/products') }}/">--}}
+                <a href="/products">
                     <i class="ti-view-list-alt"></i>
                     <p>Lihat Produk</p>
                 </a>

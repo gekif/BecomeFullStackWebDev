@@ -48,7 +48,7 @@
                         </tr>
 
                         <tr>
-                            <th>Image</th>
+                            <th>Gambar</th>
                             <td><img src="/uploads/{{ $product->image }}" alt="{{ $product->image }}" class="img-thumbnail" style="width: 150px;"></td>
                         </tr>
 

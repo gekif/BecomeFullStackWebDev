@@ -16,7 +16,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.products.create');
+        $product = new Product();
+        return view('admin.products.create', compact('product'));
     }
 
     public function store(Request $request)
@@ -61,4 +62,58 @@ class ProductController extends Controller
         //Redirect back
         return redirect('/products');
     }
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        return view('admin.products.edit', compact('product'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Find the product
+        $product = Product::find($id);
+
+        // Validate the from
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required'
+        ]);
+
+        // Check if there is any image
+        if ($request->hasFile('image')) {
+            // Check if the old image exists inside folder
+            if (file_exists(public_path('uploads/') . $product->image)) {
+                unlink(public_path('uploads/') . $product->image);
+            }
+
+            // Upload the new image
+            $image = $request->image;
+            $image->move('uploads', $image->getClientOriginalName());
+
+            $product->image = $request->image->getClientOriginalName();
+        }
+
+        // Updating the product
+        $product->update([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $product->image
+        ]);
+
+        // Store a message in session
+        $request->session()->flash('msg', 'Produk berhasil diubah');
+
+        // Redirect back
+        return redirect('/products');
+    }
+
+    public function show($id)
+    {
+        $product = Product::find($id);
+        return view('admin.products.details', compact('product'));
+    }
+
 }

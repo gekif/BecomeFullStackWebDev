@@ -38,6 +38,8 @@
                                 <td>
                                     {{ Form::open(['route' => ['products.destroy', $product->id], 'method' => 'DELETE']) }}
                                         {{ Form::button('<span class="fa fa-trash"></span>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm', 'onclick' => 'return confirm("Mau dihapus produk ini?")']) }}
+                                        {{ link_to_route('products.edit', '', $product->id, ['class' => 'btn btn-info btn-sm ti-pencil']) }}
+                                        {{ link_to_route('products.show', '', $product->id, ['class' => 'btn btn-primary btn-sm ti-list']) }}
                                     {{ Form::close() }}
                                 </td>
                             </tr>

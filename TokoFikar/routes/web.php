@@ -17,4 +17,4 @@ Route::resource('/users', 'UserController');
 
 // Admin Login
 Route::get('/admin/login', 'AdminUserController@index');
-Route:post('/admin/login', 'AdminUserController@store');
+Route::post('/admin/login', 'AdminUserController@store');

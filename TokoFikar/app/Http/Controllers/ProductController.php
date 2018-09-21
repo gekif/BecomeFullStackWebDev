@@ -48,7 +48,7 @@ class ProductController extends Controller
         $request->session()->flash('msg', 'Produk sudah ditambah');
 
         // Redirect the form
-        return redirect('products/create');
+        return redirect('admin/products/create');
     }
 
     public function destroy($id)
@@ -60,7 +60,7 @@ class ProductController extends Controller
         session()->flash('msg', 'Produk sudah dihapus');
 
         //Redirect back
-        return redirect('/products');
+        return redirect('admin/products');
     }
 
     public function edit($id)
@@ -107,7 +107,7 @@ class ProductController extends Controller
         $request->session()->flash('msg', 'Produk berhasil diubah');
 
         // Redirect back
-        return redirect('/products');
+        return redirect('/admin/products');
     }
 
     public function show($id)

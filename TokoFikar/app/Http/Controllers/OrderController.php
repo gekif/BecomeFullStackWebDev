@@ -25,7 +25,7 @@ class OrderController extends Controller
         session()->flash('msg', 'Pesanan sudah dikonfirmasi');
 
         // Redirect the page
-        return redirect('admin/orders');
+        return redirect('orders');
     }
 
     public function show($id)

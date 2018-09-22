@@ -10,54 +10,24 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Product Detail</h4>
-                    <p class="category">List of all stock</p>
+                    <h4 class="title">Detil Pesanan</h4>
+                    <p class="category">Daftar Semua Pesanan</p>
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
-                        <tbody>
-
-                        <tr>
-                            <th>ID</th>
-                            <td>1</td>
-                        </tr>
-
-                        <tr>
-                            <th>Name</th>
-                            <td>Samsung</td>
-                        </tr>
-
-                        <tr>
-                            <th>Description</th>
-                            <td>This is some text for the product</td>
-                        </tr>
-
-                        <tr>
-                            <th>Price</th>
-                            <td>$1200</td>
-                        </tr>
-
-                        <tr>
-                            <th>Created At</th>
-                            <td>12 days ago</td>
-                        </tr>
-
-                        <tr>
-                            <th>Updated At</th>
-                            <td>5 days ago</td>
-                        </tr>
-
-                        <tr>
-                            <th>Image</th>
-                            <td><img src="assets/img/favicon.png" alt="" class="img-thumbnail" style="width: 150px;"></td>
-                        </tr>
-
-                        </tbody>
-
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tanggal</th>
+                                <th>Kuantitas</th>
+                                <th>Alamat</th>
+                                <th>Tanggal Pesan</th>
+                                <th>Status</th>
+                            </tr>
                     </table>
-
                 </div>
             </div>
         </div>
+
     </div>
 @endsection

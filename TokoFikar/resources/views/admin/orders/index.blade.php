@@ -9,10 +9,13 @@
     <div class="row">
 
         <div class="col-md-12">
+
+            @include('admin.layouts.message')
+
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Orders</h4>
-                    <p class="category">List of all orders</p>
+                    <h4 class="title">Pesanan</h4>
+                    <p class="category">Daftar Semua Pesanan</p>
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
@@ -50,11 +53,12 @@
                                     @endif
                                 </td>
                             <td>
-                                <button class="btn btn-sm btn-success ti-close"
-                                        title="Cancel Order"></button>
 
-                                <button class="btn btn-sm btn-primary ti-view-list-alt"
-                                        title="Details"></button>
+                                @if ($order->status)
+                                    {{ link_to_route('order.pending', 'Pending', $order->id, ['class' => 'btn btn-warning btn-sm']) }}
+                                @else
+                                    {{ link_to_route('order.confirm', 'Terkonfirmasi', $order->id, ['class' => 'btn btn-success btn-sm']) }}
+                                @endif
                             </td>
                         </tr>
                         @endforeach

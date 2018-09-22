@@ -25,13 +25,29 @@ class OrderController extends Controller
         session()->flash('msg', 'Pesanan sudah dikonfirmasi');
 
         // Redirect the page
-        return redirect('orders');
+        return redirect('/orders');
     }
 
     public function show($id)
     {
         $order = Order::find($id);
         return view('admin.orders.details', compact('order'));
+    }
+
+    public function pending($id)
+    {
+        // Find the order
+        $order = Order::find($id);
+
+        // Update the order
+        $order->update(['status' => 0]);
+
+        // Session message
+        session()->flash('pend', 'Pesanan dipending');
+
+        // Redirect the page
+        return redirect('/orders');
+
     }
 
 

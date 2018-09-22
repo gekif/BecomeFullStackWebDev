@@ -3,3 +3,9 @@
         {{ session()->get('msg') }}
     </div>
 @endif
+
+@if(session()->has('pend'))
+    <div class="alert alert-warning">
+        {{ session()->get('pend') }}
+    </div>
+@endif

@@ -34,8 +34,7 @@
                                 <td>
                                     <button class="btn btn-sm btn-success ti-close" title="Block User"></button>
 
-                                    <button class="btn btn-sm btn-primary ti-view-list-alt"
-                                            title="Details"></button>
+                                   {{ link_to_route('users.show', 'Detil', $user->id, ['class' => 'btn btn-success btn-sm']) }}
                                 </td>
                             </tr>
                             @endforeach

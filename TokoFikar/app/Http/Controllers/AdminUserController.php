@@ -38,4 +38,14 @@ class AdminUserController extends Controller
     }
 
 
+    public function logout()
+    {
+        auth()->guard('admin')->logout();
+
+        session()->flash('msg', 'Anda sudah keluar aplikasi');
+
+        return redirect('/admin/login');
+    }
+
+
 }

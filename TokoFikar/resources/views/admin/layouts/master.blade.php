@@ -45,7 +45,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Profil</a></li>
-                                <li><a href="#">Keluar</a></li>
+                                <li><a href="{{ url('admin/logout') }}">Keluar</a></li>
                             </ul>
                         </li>
                     </ul>

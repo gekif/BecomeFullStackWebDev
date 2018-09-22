@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->price }}</td>
+                                <td>Rp. {{ number_format($product->price) }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td><img src="/uploads/{{ $product->image }}" alt="{{ $product->image }}" class="img-thumbnail"
                                          style="width: 50px"></td>

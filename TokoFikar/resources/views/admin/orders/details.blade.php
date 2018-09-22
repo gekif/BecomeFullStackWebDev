@@ -112,7 +112,7 @@
 
                         <tr>
                             <th>Harga</th>
-                            <td>{{ $order->products[0]->price }}</td>
+                            <td>Rp. {{ number_format($order->products[0]->price) }}</td>
                         </tr>
 
                         <tr>

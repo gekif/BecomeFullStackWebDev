@@ -34,7 +34,7 @@
 
                         <tr>
                             <th>Harga</th>
-                            <td>{{ $product->price }}</td>
+                            <td>Rp. {{ number_format($product->price) }}</td>
                         </tr>
 
                         <tr>

@@ -50,6 +50,10 @@
                             </div>
                         @endif
 
+                        @if( session()->has('msg'))
+                            <div class="alert alert-success">{{ session()->get('msg') }}</div>
+                        @endif
+
                         <form method="post" action="/admin/login">
 
                             @csrf

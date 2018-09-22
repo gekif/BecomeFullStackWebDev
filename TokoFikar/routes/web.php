@@ -35,6 +35,4 @@ Route::prefix('admin')->group(function () {
  * Front End Routes
  */
 
-Route::get('/', function () {
-    return view('front.index');
-});
+Route::get('/', 'front\HomeController@index');

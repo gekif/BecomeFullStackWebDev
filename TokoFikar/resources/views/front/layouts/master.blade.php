@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home</title>
+    <title>Toko Fikar</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -28,10 +28,10 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-        <h5 class="display-3"><strong>Welcome,</strong></h5>
-        <p class="display-4"><strong>SALE UPTO 50%</strong></p>
+        <h5 class="display-3"><strong>Selamat Datang,</strong></h5>
+        <p class="display-4"><strong>Diskon Sampai Dengan 99%</strong></p>
         <p class="display-4">&nbsp;</p>
-        <a href="#" class="btn btn-warning btn-lg float-right">SHOP NOW!</a>
+        <a href="#" class="btn btn-warning btn-lg float-right">BELANJA SEKARANG!</a>
     </header>
 
     @yield('content')

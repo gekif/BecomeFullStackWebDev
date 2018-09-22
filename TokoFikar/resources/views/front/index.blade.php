@@ -15,9 +15,8 @@
                     </p>
                 </div>
                 <div class="card-footer">
-                    <strong>IDR{{ $product->price }}</strong> &nbsp;
-                    <a href="#" class="btn btn-primary btn-outline-dark"><i class="fa fa-cart-plus "></i> Add To
-                        Cart</a>
+                    <strong>Rp. {{ number_format($product->price) }}</strong> &nbsp;
+                    <a href="#" class="btn btn-primary btn-outline-dark"><i class="fa fa-cart-plus "></i> Tambah Belanja</a>
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ url('/') }}">
+                <a href="{{ url('/users') }}">
                     <i class="fa fa-users"></i>
                     <p>Pengguna</p>
                 </a>

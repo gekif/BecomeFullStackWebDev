@@ -25,7 +25,7 @@ class OrderController extends Controller
         session()->flash('msg', 'Pesanan sudah dikonfirmasi');
 
         // Redirect the page
-        return redirect('/orders');
+        return redirect('admin/orders');
     }
 
 
@@ -48,7 +48,7 @@ class OrderController extends Controller
         session()->flash('pend', 'Pesanan dipending');
 
         // Redirect the page
-        return redirect('/orders');
+        return redirect('admin/orders');
 
     }
 

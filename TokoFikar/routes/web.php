@@ -1,19 +1,31 @@
 <?php
 
-// Dashboard
-Route::get('/', 'DashboardController@index');
+/**
+ * Admin Routes
+ */
+Route::prefix('admin')->group(function () {
+    // Dashboard
+    Route::get('/', 'DashboardController@index');
 
-// Products
-Route::resource('/products', 'ProductController');
+    // Products
+    Route::resource('/products', 'ProductController');
 
-// Orders
-Route::resource('/orders', 'OrderController');
-Route::get('/confirm/{id}', 'OrderController@confirm')->name('order.confirm');
-Route::get('/pending/{id}', 'OrderController@pending')->name('order.pending');
+    // Orders
+    Route::resource('/orders', 'OrderController');
+    Route::get('/confirm/{id}', 'OrderController@confirm')->name('order.confirm');
+    Route::get('/pending/{id}', 'OrderController@pending')->name('order.pending');
 
-// Users
-Route::resource('/users', 'UsersController');
+    // Users
+    Route::resource('/users', 'UsersController');
 
-// Admin Login
-Route::get('/admin/login', 'AdminUserController@index');
-Route::post('/admin/login', 'AdminUserController@store');
+    // Admin Login
+    Route::get('/admin/login', 'AdminUserController@index');
+    Route::post('/admin/login', 'AdminUserController@store');
+});
+
+
+/**
+ * Front End Routes
+ */
+
+

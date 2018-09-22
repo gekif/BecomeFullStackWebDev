@@ -50,7 +50,7 @@ class ProductController extends Controller
         $request->session()->flash('msg', 'Produk sudah ditambah');
 
         // Redirect the form
-        return redirect('products/create');
+        return redirect('admin/products/create');
     }
 
 
@@ -63,7 +63,7 @@ class ProductController extends Controller
         session()->flash('msg', 'Produk sudah dihapus');
 
         //Redirect back
-        return redirect('products');
+        return redirect('admin/products');
     }
 
 
@@ -112,7 +112,7 @@ class ProductController extends Controller
         $request->session()->flash('msg', 'Produk berhasil diubah');
 
         // Redirect back
-        return redirect('products');
+        return redirect('admin/products');
     }
 
 

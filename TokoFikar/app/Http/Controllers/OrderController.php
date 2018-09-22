@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Order;
 
 class OrderController extends Controller
@@ -12,6 +11,7 @@ class OrderController extends Controller
         $orders = Order::all();
         return view('admin.orders.index', compact('orders'));
     }
+
 
     public function confirm($id)
     {
@@ -28,11 +28,13 @@ class OrderController extends Controller
         return redirect('/orders');
     }
 
+
     public function show($id)
     {
         $order = Order::find($id);
         return view('admin.orders.details', compact('order'));
     }
+
 
     public function pending($id)
     {

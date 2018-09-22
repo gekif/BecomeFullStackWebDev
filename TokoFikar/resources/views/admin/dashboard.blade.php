@@ -7,6 +7,7 @@
 @section('content')
 
     <div class="row">
+
         <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="content">
@@ -32,6 +33,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="content">
@@ -57,6 +59,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="content">
@@ -82,6 +85,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="content">

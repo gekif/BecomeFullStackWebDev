@@ -14,11 +14,13 @@ class ProductController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
+
     public function create()
     {
         $product = new Product();
         return view('admin.products.create', compact('product'));
     }
+
 
     public function store(Request $request)
     {
@@ -51,6 +53,7 @@ class ProductController extends Controller
         return redirect('products/create');
     }
 
+
     public function destroy($id)
     {
         // Delete the product
@@ -63,11 +66,13 @@ class ProductController extends Controller
         return redirect('products');
     }
 
+
     public function edit($id)
     {
         $product = Product::find($id);
         return view('admin.products.edit', compact('product'));
     }
+
 
     public function update(Request $request, $id)
     {
@@ -110,10 +115,12 @@ class ProductController extends Controller
         return redirect('products');
     }
 
+
     public function show($id)
     {
         $product = Product::find($id);
         return view('admin.products.details', compact('product'));
     }
+
 
 }

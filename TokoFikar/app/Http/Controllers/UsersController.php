@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\User;
-use Illuminate\Http\Request;
-
 
 class UsersController extends Controller
 {
@@ -15,6 +13,7 @@ class UsersController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
+
     public function show($id)
     {
         // Find the user
@@ -22,6 +21,7 @@ class UsersController extends Controller
 
         // Return array back to user details page
         return view('admin.users.details', compact('orders'));
-
     }
+
+
 }

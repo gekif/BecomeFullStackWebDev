@@ -43,15 +43,15 @@
                         </div>
                         <div class="col-xs-7">
                             <div class="numbers">
-                                <p>Total Penjualan</p>
-                                $1,345
+                                <p>Total Produk</p>
+                                {{ $product->count() }}
                             </div>
                         </div>
                     </div>
                     <div class="footer">
                         <hr/>
                         <div class="stats">
-                            <i class="ti-panel"></i> Detil
+                            <a href="{{ url('/products') }}"><i class="ti-panel"></i> Detil</a>
                         </div>
                     </div>
                 </div>
@@ -69,14 +69,14 @@
                         <div class="col-xs-7">
                             <div class="numbers">
                                 <p>Total Pesanan</p>
-                                23
+                                {{ $order->count() }}
                             </div>
                         </div>
                     </div>
                     <div class="footer">
                         <hr/>
                         <div class="stats">
-                            <i class="ti-panel"></i> Detil
+                            <a href="{{ url('/orders') }}"><i class="ti-panel"></i> Detil</a>
                         </div>
                     </div>
                 </div>
@@ -94,14 +94,14 @@
                         <div class="col-xs-7">
                             <div class="numbers">
                                 <p>Total Pengguna</p>
-                                45
+                                {{ $user->count() }}
                             </div>
                         </div>
                     </div>
                     <div class="footer">
                         <hr/>
                         <div class="stats">
-                            <i class="ti-panel"></i> Detil
+                            <a href="{{ url('/users') }}"><i class="ti-panel"></i> Detil</a>
                         </div>
                     </div>
                 </div>

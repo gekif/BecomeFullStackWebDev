@@ -57,7 +57,7 @@
                                 @if ($order->status)
                                     {{ link_to_route('order.pending', 'Pending', $order->id, ['class' => 'btn btn-warning btn-sm']) }}
                                 @else
-                                    {{ link_to_route('order.confirm', 'Terkonfirmasi', $order->id, ['class' => 'btn btn-success btn-sm']) }}
+                                    {{ link_to_route('order.confirm', 'Konfirmasi', $order->id, ['class' => 'btn btn-success btn-sm']) }}
                                 @endif
 
                                 {{ link_to_route('orders.show', 'Detil', $order->id, ['class' => 'btn btn-success btn-sm']) }}

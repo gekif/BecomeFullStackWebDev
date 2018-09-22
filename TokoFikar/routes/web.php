@@ -4,23 +4,30 @@
  * Admin Routes
  */
 Route::prefix('admin')->group(function () {
-    // Dashboard
-    Route::get('/', 'DashboardController@index');
 
-    // Products
-    Route::resource('/products', 'ProductController');
+    Route::middleware('auth:admin')->group(function () {
+// Dashboard
+        Route::get('/', 'DashboardController@index');
 
-    // Orders
-    Route::resource('/orders', 'OrderController');
-    Route::get('/confirm/{id}', 'OrderController@confirm')->name('order.confirm');
-    Route::get('/pending/{id}', 'OrderController@pending')->name('order.pending');
+        // Products
+        Route::resource('/products', 'ProductController');
 
-    // Users
-    Route::resource('/users', 'UsersController');
+        // Orders
+        Route::resource('/orders', 'OrderController');
+        Route::get('/confirm/{id}', 'OrderController@confirm')->name('order.confirm');
+        Route::get('/pending/{id}', 'OrderController@pending')->name('order.pending');
+
+        // Users
+        Route::resource('/users', 'UsersController');
+
+        // Logout
+        Route::get('logout', 'AdminUserController@logout');
+    });
+
 
     // Admin Login
-    Route::get('/admin/login', 'AdminUserController@index');
-    Route::post('/admin/login', 'AdminUserController@store');
+    Route::get('/login', 'AdminUserController@index');
+    Route::post('/login', 'AdminUserController@store');
 });
 
 

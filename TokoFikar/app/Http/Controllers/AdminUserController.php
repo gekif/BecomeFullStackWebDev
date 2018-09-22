@@ -34,7 +34,7 @@ class AdminUserController extends Controller
         session()->flash('msg', 'Kamu sudah masuk');
 
         // Redirect
-        return redirect('/');
+        return redirect('/admin');
     }
 
 

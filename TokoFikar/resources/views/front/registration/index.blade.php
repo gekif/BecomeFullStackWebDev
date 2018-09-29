@@ -9,6 +9,17 @@
                 <div class="card-body">
                     <h2 class="card-title">Sign Up</h2>
                     <hr>
+
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="/user/register" method="post">
 
                         @csrf
@@ -29,13 +40,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="confirm-password">Confirm Password:</label>
-                            <input type="password" name="confirm-password" placeholder="Confirm Password" id="confirm-password" class="form-control">
+                            <label for="password_confirmation">Confirm Password:</label>
+                            <input type="password" name="password_confirmation" placeholder="Confirm Password" id="password_confirmation" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="address">Address:</label>
-                            <input type="text" name="address" placeholder="Address" id="address" class="form-control">
+                            <textarea name="address" placeholder="Address" id="address" class="form-control"></textarea>
                         </div>
 
                         <div class="form-group">

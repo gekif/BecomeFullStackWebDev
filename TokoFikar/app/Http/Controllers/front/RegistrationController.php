@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class RegistrationController extends Controller
 {
@@ -14,6 +15,28 @@ class RegistrationController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // Validate the user
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email ',
+            'password' => 'required|confirmed',
+            'address' => 'required'
+        ]);
+
+        // Save the data
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'address' => $request->address,
+
+        ]);
+
+
+        // Sign in the user
+        auth()->login($user);
+
+        // Redirect back
+        return redirect('user/profile');
     }
 }

@@ -40,3 +40,7 @@ Route::get('/', 'front\HomeController@index');
 // User Registration
 Route::get('/user/register', 'front\RegistrationController@index');
 Route::post('/user/register', 'front\RegistrationController@store');
+
+Route::get('/user/profile', function () {
+    return 'Welcome - User';
+});

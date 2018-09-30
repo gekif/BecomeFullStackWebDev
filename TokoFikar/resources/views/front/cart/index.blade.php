@@ -2,10 +2,12 @@
 
 @section('content')
 
-        <h2 class="mt-5"><i class="fa fa-shopping-cart"></i> Shooping Cart</h2>
+        <h2 class="mt-5"><i class="fa fa-shopping-cart"></i> Shopping Cart</h2>
         <hr>
 
-        <h4 class="mt-5">4 items(s) in Shopping Cart</h4>
+        @if( Cart::instance('default')->count() > 0)
+
+        <h4 class="mt-5">{{ Cart::instance('default')->count() }} items(s) in Shopping Cart</h4>
 
         <div class="cart-items">
 
@@ -13,78 +15,39 @@
 
                 <div class="col-md-12">
 
+                    @if(session()->has('msg'))
+                        <div class="alert alert-success">{{ session()->get('msg') }}</div>
+                    @endif
+
+
                     <table class="table">
 
                         <tbody>
 
-                        <tr>
-                            <td><img src="images/12.jpg" style="width: 5em"></td>
-                            <td>
-                                <strong>Mac</strong><br> This is some text for the product
-                            </td>
+                        @foreach(Cart::instance('default')->content() as $item)
+                            <tr>
+                                <td><img src="{{ url('/uploads') . "/" . $item->model->image }}" style="width: 5em"></td>
+                                <td>
+                                    <strong>{{ $item->model->name }}</strong><br> {{ $item->model->description }}
+                                </td>
 
-                            <td>
+                                <td>
 
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
+                                    <a href="">Remove</a><br>
+                                    <a href="">Save for later</a>
 
-                            </td>
+                                </td>
 
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
+                                <td>
+                                    <select name="" id="" class="form-control" style="width: 4.7em">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                    </select>
+                                </td>
 
-                            <td>$233</td>
-                        </tr>
-
-                        <tr>
-                            <td><img src="images/01.jpg" style="width: 5em"></td>
-                            <td>
-                                <strong>Laptop</strong><br> This is some text for the product
-                            </td>
-
-                            <td>
-
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
-
-                            </td>
-
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
-
-                            <td>$233</td>
-                        </tr>
-
-                        <tr>
-                            <td><img src="images/12.jpg" style="width: 5em"></td>
-                            <td>
-                                <strong>Laptop</strong><br> This is some text for the product
-                            </td>
-
-                            <td>
-
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
-
-                            </td>
-
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
-
-                            <td>$233</td>
-                        </tr>
+                                <td>Rp. {{ $item->subtotal() }}</td>
+                            </tr>
+                        @endforeach
 
                         </tbody>
 
@@ -102,26 +65,26 @@
                             </thead>
                             <tr>
                                 <td>Subtotal </td>
-                                <td>12500.00 </td>
+                                <td>Rp. {{ Cart::subtotal() }}</td>
                             </tr>
                             <tr>
-                                <td>Text</td>
-                                <td>2133.00</td>
+                                <td>Tax</td>
+                                <td>Rp. {{ Cart::tax() }}</td>
                             </tr>
                             <tr>
                                 <th>Total</th>
-                                <th>1,8444</th>
+                                <th>Rp. {{ Cart::total() }}</th>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <!-- Save for later  -->
                 <div class="col-md-12">
-                    <button class="btn btn-outline-dark">Continue Shopping</button>
-                    <button class="btn btn-outline-info">Proceed to checkout</button>
+                    <a href="/" class="btn btn-outline-dark">Continue Shopping</a>
+                    <a href="/checkout" class="btn btn-outline-info">Proceed to checkout</a>
                     <hr>
-
                 </div>
+        @endif
 
                 <div class="col-md-12">
 

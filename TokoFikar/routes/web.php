@@ -55,3 +55,7 @@ Route::get('/user/order/{id}', 'front\UserProfileController@show');
 // Cart
 Route::get('/cart', 'front\CartController@index');
 Route::post('/cart', 'front\CartController@store')->name('cart');
+
+Route::get('empty', function () {
+    Cart::instance('default')->destroy();
+});

@@ -12,6 +12,7 @@ class SessionController extends Controller
         return view('front.session.index');
     }
 
+
     public function store(Request $request)
     {
         // Validate the user
@@ -31,5 +32,13 @@ class SessionController extends Controller
 
         // Redirect
         return redirect('/user/profile');
+    }
+
+
+    public function logout()
+    {
+        auth()->logout();
+        session()->flash('msg', 'You have been logged out successfully');
+        return redirect('/user/login');
     }
 }

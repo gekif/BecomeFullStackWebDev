@@ -18,4 +18,11 @@ class CartController extends Controller
         Cart::add($request->id, $request->name, 1, $request->price)->associate('App\Product');
         return redirect()->back()->with('msg', 'Item has been added to cart');
     }
+
+    public function destroy($id)
+    {
+        Cart::remove($id);
+
+        return redirect()->back()->with('msg', 'Item has been removed from cart');
+    }
 }

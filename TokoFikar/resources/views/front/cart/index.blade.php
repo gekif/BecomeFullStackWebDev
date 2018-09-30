@@ -32,8 +32,11 @@
                                 </td>
 
                                 <td>
-
-                                    <a href="">Remove</a><br>
+                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-link btn-link-dark">Remove</button><br>
+                                    </form>
                                     <a href="">Save for later</a>
 
                                 </td>
@@ -84,6 +87,10 @@
                     <a href="/checkout" class="btn btn-outline-info">Proceed to checkout</a>
                     <hr>
                 </div>
+        @else
+            <h3> There is no item in your cart</h3>
+            <a href="/" class="btn btn-outline-dark">Continue Shopping</a>
+            <hr>
         @endif
 
                 <div class="col-md-12">

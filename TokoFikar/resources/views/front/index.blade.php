@@ -9,8 +9,13 @@
         <a href="#" class="btn btn-warning btn-lg float-right">BELANJA SEKARANG!</a>
     </header>
 
-    <div class="row text-center">
+    @if(session()->has('msg'))
+        <div class="alert alert-success">
+            {{ session()->get('msg') }}
+        </div>
+    @endif
 
+    <div class="row text-center">
 
         @foreach($products as $product)
 
@@ -25,7 +30,13 @@
                 </div>
                 <div class="card-footer">
                     <strong>Rp. {{ number_format($product->price) }}</strong> &nbsp;
-                    <a href="#" class="btn btn-primary btn-outline-dark"><i class="fa fa-cart-plus "></i> Tambah Belanja</a>
+                    <form action="{{ route('cart') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $product->id }}">
+                        <input type="hidden" name="name" value="{{ $product->name }}">
+                        <input type="hidden" name="price" value="{{ $product->price }}">
+                        <button type="submit" class="btn btn-primary btn-outline-dark"><i class="fa fa-cart-plus "></i> Tambah Belanja</button>
+                    </form>
                 </div>
             </div>
         </div>

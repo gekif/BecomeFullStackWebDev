@@ -60,6 +60,7 @@ Route::post('/cart/saveLater/{product}', 'front\CartController@saveLater')->name
 
 // Save for later
 Route::delete('/saveLater/destroy/{product}', 'front\SaveLaterController@destroy')->name('saveLater.destroy');
+Route::post('/cart/moveToCart/{product}', 'front\SaveLaterController@moveToCart')->name('moveToCart');
 
 Route::get('empty', function () {
     Cart::instance('default')->destroy();

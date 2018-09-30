@@ -116,7 +116,7 @@
                                         @method('delete')
                                         <button type="submit" class="btn btn-link btn-link-dark">Remove</button><br>
                                     </form>
-                                    <form action="{{ route('cart.saveLater', $item->rowId) }}" method="post">
+                                    <form action="{{ route('moveToCart', $item->rowId) }}" method="post">
                                         @csrf
                                         <button type="submit" class="btn btn-link btn-link-dark">Move to Cart</button>
                                     </form>

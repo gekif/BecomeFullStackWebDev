@@ -7,6 +7,13 @@ use App\Http\Controllers\Controller;
 
 class SessionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
+
     public function index()
     {
         return view('front.session.index');

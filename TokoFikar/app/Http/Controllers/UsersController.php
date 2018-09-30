@@ -7,6 +7,7 @@ use App\User;
 
 class UsersController extends Controller
 {
+
     public function index()
     {
         $users = User::all();
@@ -22,6 +23,5 @@ class UsersController extends Controller
         // Return array back to user details page
         return view('admin.users.details', compact('orders'));
     }
-
 
 }

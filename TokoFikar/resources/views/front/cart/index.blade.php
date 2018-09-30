@@ -111,7 +111,7 @@
                                 </td>
 
                                 <td>
-                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
+                                    <form action="{{ route('saveLater.destroy', $item->rowId) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-link btn-link-dark">Remove</button><br>

@@ -58,6 +58,9 @@ Route::post('/cart', 'front\CartController@store')->name('cart');
 Route::delete('/cart/remove/{product}', 'front\CartController@destroy')->name('cart.destroy');
 Route::post('/cart/saveLater/{product}', 'front\CartController@saveLater')->name('cart.saveLater');
 
+// Save for later
+Route::delete('/saveLater/destroy/{product}', 'front\SaveLaterController@destroy')->name('saveLater.destroy');
+
 Route::get('empty', function () {
     Cart::instance('default')->destroy();
 });

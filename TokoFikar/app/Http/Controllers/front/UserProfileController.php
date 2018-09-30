@@ -15,4 +15,10 @@ class UserProfileController extends Controller
 
         return view('front.profile.index', compact('user'));
     }
+
+
+    public function show($id)
+    {
+
+    }
 }

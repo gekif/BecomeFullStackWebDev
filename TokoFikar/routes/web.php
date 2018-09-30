@@ -50,3 +50,4 @@ Route::get('/user/logout', 'front\SessionController@logout');
 
 // Profile
 Route::get('/user/profile', 'front\UserProfileController@index');
+Route::get('/user/order/{id}', 'front\UserProfileController@show');

@@ -28,4 +28,53 @@
             <td>{{ $user->created_at->diffForHumans() }}</td>
         </tr>
     </table>
+
+        <h4 class="title">Pesanan</h4>
+        <hr>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Pengguna</th>
+                    <th>Produk</th>
+                    <th>Kuantitas</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    @foreach($user->order as $order)
+                        <td>{{ $order->id }}</td>
+                        <td>{{ $order->user->name }}</td>
+                        <td>
+                            @foreach($order->products as $item)
+                                {{ $item->name }}
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach($order->orderItems as $item)
+                                {{ $item->quantity }}
+                            @endforeach
+                        </td>
+                        <td>
+                            @if($order->status)
+                                <span class="label label-success">Terkonfirmasi</span>
+                            @else
+                                <span class="label label-warning">Pending</span>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{ url('/user/order') . '/' . $order->id }}" class="btn btn-outline-dark btn-sm">Details</a>
+                        </td>
+                </tr>
+                @endforeach
+
+                </tbody>
+            </table>
+
+        </div>
+
 @endsection

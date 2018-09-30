@@ -19,7 +19,6 @@
                         <div class="alert alert-success">{{ session()->get('msg') }}</div>
                     @endif
 
-
                     <table class="table">
 
                         <tbody>
@@ -37,7 +36,10 @@
                                         @method('delete')
                                         <button type="submit" class="btn btn-link btn-link-dark">Remove</button><br>
                                     </form>
-                                    <a href="">Save for later</a>
+                                    <form action="{{ route('cart.saveLater', $item->rowId) }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-link btn-link-dark">Save for later</button>
+                                    </form>
 
                                 </td>
 
@@ -93,87 +95,51 @@
             <hr>
         @endif
 
+        @if( Cart::instance('saveForLater')->count() > 0)
                 <div class="col-md-12">
 
-                    <h4>2 items Save for Later</h4>
+                    <h4>{{ Cart::instance('saveForLater')->count() }} items Save for Later</h4>
                     <table class="table">
 
                         <tbody>
 
-                        <tr>
-                            <td><img src="" style="width: 5em"></td>
-                            <td>
-                                <strong>Mac</strong><br> This is some text for the product
-                            </td>
+                        @foreach(Cart::instance('saveForLater')->content() as $item)
+                            <tr>
+                                <td><img src="{{ url('/uploads') . "/" . $item->model->image }}" style="width: 5em"></td>
+                                <td>
+                                    <strong>{{ $item->model->name }}</strong><br> {{ $item->model->description }}
+                                </td>
 
-                            <td>
+                                <td>
+                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-link btn-link-dark">Remove</button><br>
+                                    </form>
+                                    <form action="{{ route('cart.saveLater', $item->rowId) }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-link btn-link-dark">Move to Cart</button>
+                                    </form>
 
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
+                                </td>
 
-                            </td>
+                                <td>
+                                    <select name="" id="" class="form-control" style="width: 4.7em">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                    </select>
+                                </td>
 
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
-
-                            <td>$233</td>
-                        </tr>
-
-                        <tr>
-                            <td><img src="images/01.jpg" style="width: 5em"></td>
-                            <td>
-                                <strong>Laptop</strong><br> This is some text for the product
-                            </td>
-
-                            <td>
-
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
-
-                            </td>
-
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
-
-                            <td>$233</td>
-                        </tr>
-
-                        <tr>
-                            <td><img src="images/12.jpg" style="width: 5em"></td>
-                            <td>
-                                <strong>Laptop</strong><br> This is some text for the product
-                            </td>
-
-                            <td>
-
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
-
-                            </td>
-
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
-
-                            <td>$233</td>
-                        </tr>
+                                <td>Rp. {{ $item->subtotal() }}</td>
+                            </tr>
+                        @endforeach
 
                         </tbody>
 
                     </table>
 
                 </div>
+        @endif
             </div>
         </div>
 @endsection
